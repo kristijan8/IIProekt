@@ -1,0 +1,28 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your jQuery Page</title>
+    <!-- Include jQuery library -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="browse.js"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav>
+      <li><a href="home.html">Home</a></li>
+      <li><a href="browse.html">Browse</a></li>
+      <li><a href="register.html">Register</a></li>
+      <li><a href="" class="pom" onclick="logOut(event)">Log out</a></li>
+      <li id="username-container"></li>
+    </nav>
+    <p>Filter the shoes by their name</p>
+    <input id="myInput" type="text" placeholder="Search.." />
+    <div id="container"></div>
+    <hr />
+    <div id="cart"></div>
+    <button id="buy">Buy</button>
+  </body>
+</html>

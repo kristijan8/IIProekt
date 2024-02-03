@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your Website</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  </head>
+  <body>
+    <div id="content"></div>
+    <script>
+      $().ready(function () {
+        var initExists = localStorage.getItem("init") !== null;
+        if (initExists) {
+        } else {
+          localStorage.setItem("init", "true");
+          let storedIntegerArray = [15, 8, 9, 0, 4, 5, 3, 7, 5, 22];
+          let jsonString = JSON.stringify(storedIntegerArray);
+          localStorage.setItem("myIntegerArray", jsonString);
+        }
+
+        localStorage.setItem("firstName", null);
+        localStorage.setItem("lastName", null);
+        localStorage.setItem("username", null);
+        localStorage.setItem("email", null);
+        localStorage.setItem("bankCard", null);
+        localStorage.setItem("homeAddress", null);
+        localStorage.setItem("phone", null);
+        localStorage.setItem("registered", false);
+        window.location.replace("home.html");
+      });
+    </script>
+  </body>
+</html>
