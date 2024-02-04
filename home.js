@@ -2,8 +2,7 @@ $().ready(function () {
   var username = localStorage.getItem("username");
   var registriran = localStorage.getItem("registered");
   if (registriran != "false") {
-    document.getElementById("username-container").innerHTML =
-      "Welcome, " + username;
+    document.getElementById("username-container").innerHTML = username;
   }
 });
 function logOut(event) {

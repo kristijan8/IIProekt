@@ -96,7 +96,7 @@ $().ready(function () {
   $("#buy").on("click", function () {
     let najaven = localStorage.getItem("registered");
     if (najaven == "false") {
-      alert("Please sing in to buy");
+      alert("Please log in in to buy");
       return;
     }
     let suma = 0;
@@ -232,8 +232,7 @@ function funkcija3() {
   let najaven = localStorage.getItem("registered");
   let username = localStorage.getItem("username");
   if (najaven != "false") {
-    document.getElementById("username-container").innerHTML =
-      "Welcome, " + username;
+    document.getElementById("username-container").innerHTML = username;
   }
 }
 function logOut(event) {

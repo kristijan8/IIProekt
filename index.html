@@ -18,13 +18,10 @@
           let jsonString = JSON.stringify(storedIntegerArray);
           localStorage.setItem("myIntegerArray", jsonString);
 
-          var myStringArray = ["User1:1111", "User2:wdqwwq", "User5:dsaas"];
-          var jsonString = JSON.stringify(myStringArray);
+          let myStringArray = ["User1:1111", "User2:wdqwwq", "User5:dsaas"];
+          jsonString = JSON.stringify(myStringArray);
           localStorage.setItem("myStringArray", jsonString);
         }
-        /* var myStringArray = ["User1:1111", "User2:wdqwwq", "User5:dsaas"];
-        var jsonString = JSON.stringify(myStringArray);
-        localStorage.setItem("myStringArray", jsonString); */
 
         localStorage.setItem("firstName", null);
         localStorage.setItem("lastName", null);

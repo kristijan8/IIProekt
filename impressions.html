@@ -64,6 +64,19 @@
       #comments {
         margin-top: 20px;
       }
+      .user-comment {
+        background-color: #fff; /* White background color for comments */
+        border: 1px solid #ddd; /* Light gray border */
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle box shadow */
+      }
+
+      .user-name {
+        color: #007bff;
+        font-weight: bold;
+      }
     </style>
   </head>
   <body>
@@ -92,14 +105,72 @@
     <label>Comments:</label>
     <input type="text" id="userComments" />
 
-    <button onclick="submitForm()">Submit</button>
+    <button id="submitForm">Submit</button>
 
     <div id="comments"></div>
     <script>
       $().ready(function () {
+        var username = localStorage.getItem("username");
+        var registriran = localStorage.getItem("registered");
+        if (registriran != "false") {
+          document.getElementById("username-container").innerHTML = username;
+        }
         popolni();
+        $("#submitForm").on("click", function () {
+          let najaven = localStorage.getItem("registered");
+          if (najaven === "false") {
+            alert(
+              "Please log in to be able to enter your impression for out web page"
+            );
+          } else {
+            let komentar = $("#userComments").val();
+            if (komentar === "") return;
+            let korisnik = localStorage.getItem("username");
+            let retrievedStringArray = JSON.parse(
+              localStorage.getItem("myStringArray")
+            );
+            korisnik += ":";
+            korisnik += komentar;
+            retrievedStringArray.push(korisnik);
+
+            let jsonString = JSON.stringify(retrievedStringArray);
+            localStorage.setItem("myStringArray", jsonString);
+            popolni();
+          }
+        });
       });
-      function popolni() {}
+      function popolni() {
+        let retrievedStringArray = JSON.parse(
+          localStorage.getItem("myStringArray")
+        );
+        let container = $("#comments");
+        container.children().remove();
+        for (komentar of retrievedStringArray) {
+          let p = $("<p>");
+          p.addClass("user-comment");
+          let s = $("<span>");
+          s.addClass("user-name");
+          s.text(komentar.split(":")[0] + ": ");
+          p.append(s);
+          let s1 = $("<span>");
+          s1.text(komentar.split(":")[1]);
+          p.append(s1);
+          container.append(p);
+        }
+      }
+
+      function logOut(event) {
+        event.preventDefault();
+        localStorage.setItem("firstName", null);
+        localStorage.setItem("lastName", null);
+        localStorage.setItem("username", null);
+        localStorage.setItem("email", null);
+        localStorage.setItem("bankCard", null);
+        localStorage.setItem("homeAddress", null);
+        localStorage.setItem("phone", null);
+        localStorage.setItem("registered", false);
+        window.location.replace("home.html");
+      }
     </script>
   </body>
 </html>
