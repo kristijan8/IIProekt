@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <style>
+      nav {
+        background-color: #333;
+        padding: 10px;
+      }
+
+      nav ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        display: flex; /* Add flex display for positioning */
+      }
+
+      nav li {
+        display: inline-block;
+        margin-right: 15px;
+      }
+
+      nav a {
+        text-decoration: none;
+        color: #fff;
+        font-weight: bold;
+        font-size: 16px;
+        padding: 8px 12px;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+      }
+
+      nav a:hover {
+        background-color: #555;
+      }
+
+      /* Additional style for the username container */
+      #username-container {
+        color: #fff;
+        font-weight: bold;
+        font-size: 16px;
+        margin-left: auto;
+        float: right;
+      }
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 10px;
+      }
+
+      input[type="text"] {
+        width: 100%;
+        padding: 5px;
+        margin-bottom: 10px;
+      }
+
+      #comments {
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <li><a href="home.html">Home</a></li>
+      <li><a href="browse.html">Browse</a></li>
+      <li><a href="register.html">Register</a></li>
+      <li><a href="impressions.html">Impressions</a></li>
+      <li><a href="" class="pom" onclick="logOut(event)">Log out</a></li>
+      <li id="username-container"></li>
+    </nav>
+    <h1>Shoe Store Impressions</h1>
+
+    <label>Favorite Shoe Types:</label>
+    <input type="checkbox" id="sportCheckbox" value="Sport" /> Sport Shoes
+    <input type="checkbox" id="classicCheckbox" value="Classic" /> Classic Shoes
+    <input type="checkbox" id="bootsCheckbox" value="Boots" /> Boots
+
+    <label>Would you recommend our shop to others?</label>
+    <input type="radio" name="recommendation" id="yesRadio" value="Yes" /> Yes
+    <input type="radio" name="recommendation" id="noRadio" value="No" /> No
+
+    <label>Rate your experience with our web page (1-10):</label>
+    <input type="range" id="experienceRange" min="1" max="10" value="5" />
+
+    <label>Comments:</label>
+    <input type="text" id="userComments" />
+
+    <button onclick="submitForm()">Submit</button>
+
+    <div id="comments"></div>
+    <script>
+      $().ready(function () {
+        popolni();
+      });
+      function popolni() {}
+    </script>
+  </body>
+</html>
